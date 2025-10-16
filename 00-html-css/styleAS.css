@@ -1,0 +1,8 @@
+/*
+Estructura del CSS
+    Elemento que se va a estilar
+        Propiedad: valor; Declaración de estilos */
+
+    h1{
+        color: rgb(10, 10, 143);
+    }
