@@ -5,4 +5,17 @@ Estructura del CSS
 
     h1{
         color: rgb(10, 10, 143);
+        border-width: 03px;
+        border-style: solid;
+        border-color: oklch(0.5265 0.1899 267.88);
+    }
+
+    body{
+        font-family: Arial;
+        color: #000000; /* Los ultimos dos digitos es la transparencia del color. */
+        /* color: rgba(Canal rojo 0, Canal verde 0, Canal azul 0, Opacidad 0.5); */
+        /* color: rgb (0 0 0 / 50 %); Versión moderna del rgba */
+        /* color: hsl(0, 0%, 0% / 50%); Versión moderna del rgba */
+        /* color: oklch(348 80% 40% / 50%); Versión moderna del rgba, tiene mas colores, se pueden generar más*/
+
     }
