@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Metadatos básicos del documento -->
+    <meta charset="UTF-8"> <!-- Codificación de caracteres para mostrar tildes y ñ correctamente -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hace que la página sea responsive (se adapte a móviles) -->
+    <meta name="description" content="Explora las últimas ofertas de trabajo para desarrolladores"> <!-- Descripción para SEO (Google) -->
+    
+    <title>DevJobs - Encuentra tu próximo trabajo en tecnología</title>
+    
+    <!-- Aquí irá el CSS cuando lo agregues -->
+    <!-- <link rel="stylesheet" href="./styles.css"> -->
+</head>
+<body>
+    
+    <!-- ========================================
+         HEADER: Barra de navegación superior
+         ======================================== -->
+    <header>
+        <!-- Contenedor principal del header para facilitar el diseño con CSS -->
+        <div class="header-container">
+            
+            <!-- Logo/Nombre de la aplicación -->
+            <h1>DevJobs</h1>
+        
+            <!-- Navegación principal del sitio -->
+            <!-- aria-label: ayuda a lectores de pantalla a identificar este menú -->
+            <nav aria-label="Navegación principal">
+                <a href="index.html">Inicio</a>
+                <a href="empleos.html" aria-current="page">Empleos</a> <!-- aria-current indica la página actual -->
+                <a href="empresas.html">Empresas</a>
+                <a href="salarios.html">Salarios</a>
+            </nav>
+            
+            <!-- Acciones del usuario (botones de acción) -->
+            <div class="header-actions">
+                <a href="subir-cv.html" class="btn-upload-cv">Subir CV</a>
+                
+                <!-- Botón del perfil del usuario -->
+                <!-- aria-label: describe qué hace el botón para accesibilidad -->
+                <button type="button" class="profile-button" aria-label="Abrir menú del perfil">
+                    <!-- Avatar del usuario -->
+                    <!-- width y height: dimensiones de la imagen -->
+                    <!-- alt: texto alternativo si la imagen no carga -->
+                    <img src="./background.webp" width="40" height="40" alt="Avatar de usuario">
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========================================
+         MAIN: Contenido principal de la página
+         ======================================== -->
+    <main>
+        
+        <!-- ========================================
+             HERO SECTION: Sección destacada inicial
+             ======================================== -->
+        <section class="hero">
+            <!-- H2 porque ya usamos H1 en el header (solo un H1 por página) -->
+            <h2>Encuentra tu próximo trabajo</h2>
+            <p>Explora miles de oportunidades en el sector tecnológico</p>
+        </section>
+
+        <!-- ========================================
+             BUSCADOR: Formulario de búsqueda
+             ======================================== -->
+        <section class="search-section">
+            <!-- role="search": indica que este formulario es para búsquedas -->
+            <form role="search" class="search-form">
+                
+                <!-- Label oculto visualmente pero accesible para lectores de pantalla -->
+                <!-- for="search-input": conecta el label con el input -->
+                <label for="search-input" class="visually-hidden">Buscar empleos</label>
+                
+                <!-- Contenedor del input y el ícono -->
+                <div class="search-input-wrapper">
+                    
+                    <!-- Ícono de búsqueda (SVG) -->
+                    <!-- aria-hidden="true": oculta este elemento de lectores de pantalla (es decorativo) -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"
+                        class="search-icon" aria-hidden="true">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M21 12a9 9 0 1 0 -9 9" />
+                        <path d="M3.6 9h16.8" />
+                        <path d="M3.6 15h7.9" />
+                        <path d="M11.5 3a17 17 0 0 0 0 18" />
+                        <path d="M12.5 3a16.984 16.984 0 0 1 2.574 8.62" />
+                        <path d="M18 18m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+                        <path d="M20.2 20.2l1.8 1.8" />
+                    </svg>
+                    
+                    <!-- Campo de búsqueda -->
+                    <!-- type="search": tipo específico para búsquedas (añade funcionalidades del navegador) -->
+                    <!-- id="search-input": identificador único que conecta con el label -->
+                    <!-- name="query": nombre del campo que se enviará al servidor -->
+                    <!-- autocomplete="off": desactiva el autocompletado del navegador -->
+                    <input 
+                        type="search" 
+                        id="search-input"
+                        name="query"
+                        placeholder="Buscar trabajos, empresas o habilidades"
+                        autocomplete="off"
+                    >
+                </div>
+                
+                <!-- Botón para enviar el formulario -->
+                <!-- type="submit": al hacer clic, envía el formulario -->
+                <button type="submit" class="btn-search">Buscar</button>
+            </form>
+        </section>
+
+        <!-- ========================================
+             FILTROS: Dropdowns para filtrar búsqueda
+             ======================================== -->
+        <section class="filters-section">
+            <!-- H2 oculto visualmente pero accesible (buena práctica de accesibilidad) -->
+            <h2 class="visually-hidden">Filtros de búsqueda</h2>
+            
+            <!-- Navegación de filtros -->
+            <!-- aria-label: describe esta navegación para lectores de pantalla -->
+            <nav class="filters-nav" aria-label="Filtros de búsqueda">
+                
+                <!-- ========================================
+                     FILTRO 1: Tecnología
+                     ======================================== -->
+                <div class="filter-dropdown">
+                    <!-- Botón que abre/cierra el dropdown -->
+                    <!-- aria-haspopup="listbox": indica que este botón abre un listbox -->
+                    <!-- aria-expanded="false": indica si el dropdown está abierto o cerrado (false = cerrado) -->
+                    <!-- id="tech-button": identificador para conectar con el listbox -->
+                    <button type="button" class="filter-button" aria-haspopup="listbox" aria-expanded="false" id="tech-button">
+                        Tecnología
+                        <span aria-hidden="true">▼</span> <!-- Flecha decorativa (aria-hidden porque no aporta info) -->
+                    </button>
+                    
+                    <!-- Lista de opciones del dropdown -->
+                    <!-- role="listbox": indica que es una lista de opciones seleccionables -->
+                    <!-- aria-labelledby="tech-button": conecta esta lista con el botón que la controla -->
+                    <ul role="listbox" aria-labelledby="tech-button" class="filter-list">
+                        <!-- role="option": cada item es una opción seleccionable -->
+                        <li role="option">CSS</li>
+                        <li role="option">HTML</li>
+                        <li role="option">JavaScript</li>
+                        <li role="option">React</li>
+                        <li role="option">QA</li>
+                    </ul>
+                </div>
+
+                <!-- ========================================
+                     FILTRO 2: Ubicación
+                     ======================================== -->
+                <div class="filter-dropdown">
+                    <button type="button" class="filter-button" aria-haspopup="listbox" aria-expanded="false" id="location-button">
+                        Ubicación
+                        <span aria-hidden="true">▼</span>
+                    </button>
+                    <ul role="listbox" aria-labelledby="location-button" class="filter-list">
+                        <li role="option">Remoto</li>
+                        <li role="option">Presencial</li>
+                        <li role="option">Híbrido</li>
+                    </ul>
+                </div>
+
+                <!-- ========================================
+                     FILTRO 3: Tipo de contrato
+                     ======================================== -->
+                <div class="filter-dropdown">
+                    <button type="button" class="filter-button" aria-haspopup="listbox" aria-expanded="false" id="contract-button">
+                        Tipo de contrato
+                        <span aria-hidden="true">▼</span>
+                    </button>
+                    <ul role="listbox" aria-labelledby="contract-button" class="filter-list">
+                        <li role="option">Indefinido</li>
+                        <li role="option">Obra labor</li>
+                        <li role="option">Término fijo</li>
+                    </ul>
+                </div>
+
+                <!-- ========================================
+                     FILTRO 4: Nivel de experiencia
+                     ======================================== -->
+                <div class="filter-dropdown">
+                    <button type="button" class="filter-button" aria-haspopup="listbox" aria-expanded="false" id="experience-button">
+                        Nivel de experiencia
+                        <span aria-hidden="true">▼</span>
+                    </button>
+                    <ul role="listbox" aria-labelledby="experience-button" class="filter-list">
+                        <li role="option">Junior</li>
+                        <li role="option">Mid-level</li>
+                        <li role="option">Senior</li>
+                    </ul>
+                </div>
+            </nav>
+        </section>
+
+        <!-- ========================================
+             RESULTADOS: Lista de ofertas de empleo
+             ======================================== -->
+        <section class="results-section">
+            <h2>Resultados de búsqueda</h2>
+            
+            <!-- ========================================
+                 TARJETA DE EMPLEO 1
+                 ======================================== -->
+            <!-- article: contenido independiente y autocontenido -->
+            <article class="job-card">
+                
+                <!-- Encabezado de la tarjeta: título + botón -->
+                <div class="job-header">
+                    <h3>Ingeniero de Software</h3>
+                    <!-- type="button": botón que NO envía formularios (solo ejecuta una acción) -->
+                    <button type="button" class="btn-apply">Aplicar</button>
+                </div>
+                
+                <!-- Metadatos del trabajo: empresa y ubicación -->
+                <div class="job-meta">
+                    <!-- Clase específica para cada tipo de información (facilita el CSS) -->
+                    <p class="job-company">Tech Solutions Inc.</p>
+                    <p class="job-location">Remoto</p>
+                </div>
+                
+                <!-- Descripción del puesto -->
+                <p class="job-description">
+                    Buscamos un ingeniero de software con experiencia en desarrollo web 
+                    y conocimientos en JavaScript, React y Node.js. El candidato ideal debe 
+                    ser capaz de trabajar en un entorno ágil y colaborar con equipos multifuncionales.
+                </p>
+            </article>
+
+            <!-- ========================================
+                 TARJETA DE EMPLEO 2
+                 ======================================== -->
+            <article class="job-card">
+                <div class="job-header">
+                    <h3>Analista de Datos</h3>
+                    <button type="button" class="btn-apply">Aplicar</button>
+                </div>
+                
+                <div class="job-meta">
+                    <p class="job-company">Data Driven Co.</p>
+                    <p class="job-location">Ciudad de México</p>
+                </div>
+                
+                <p class="job-description">
+                    Estamos buscando un analista de datos con experiencia en el manejo de grandes 
+                    conjuntos de datos y herramientas de visualización. Se requiere conocimiento 
+                    en SQL, Python y R.
+                </p>
+            </article>
+
+            <!-- ========================================
+                 TARJETA DE EMPLEO 3
+                 ======================================== -->
+            <article class="job-card">
+                <div class="job-header">
+                    <h3>Desarrollador de Aplicaciones Móviles</h3>
+                    <button type="button" class="btn-apply">Aplicar</button>
+                </div>
+                
+                <div class="job-meta">
+                    <p class="job-company">Mobile Apps Ltd.</p>
+                    <p class="job-location">Guadalajara</p>
+                </div>
+                
+                <p class="job-description">
+                    Buscamos un desarrollador de aplicaciones móviles con experiencia en iOS y/o Android. 
+                    El candidato debe tener conocimientos en Swift, Kotlin y el desarrollo de interfaces 
+                    de usuario.
+                </p>
+            </article>
+
+            <!-- ========================================
+                 TARJETA DE EMPLEO 4
+                 ======================================== -->
+            <article class="job-card">
+                <div class="job-header">
+                    <h3>Ingeniero DevOps</h3>
+                    <button type="button" class="btn-apply">Aplicar</button>
+                </div>
+                
+                <div class="job-meta">
+                    <p class="job-company">Cloud Services SA</p>
+                    <p class="job-location">Remoto</p>
+                </div>
+                
+                <p class="job-description">
+                    Estamos buscando un ingeniero de DevOps con experiencia en la gestión de 
+                    infraestructuras en la nube, automatización de procesos y herramientas de 
+                    integración continua. Se requiere conocimiento en AWS, Azure o GCP.
+                </p>
+            </article>
+        </section>
+    </main>
+
+    <!-- ========================================
+         FOOTER: Pie de página con paginación
+         ======================================== -->
+    <footer>
+        <!-- Navegación de paginación -->
+        <!-- aria-label: describe esta navegación para lectores de pantalla -->
+        <nav aria-label="Paginación de resultados">
+            <ul class="pagination">
+                
+                <!-- Botón "anterior" (deshabilitado en la primera página) -->
+                <!-- aria-disabled="true": indica que este enlace está deshabilitado -->
+                <li>
+                    <a href="#" aria-label="Página anterior" aria-disabled="true">‹</a>
+                </li>
+                
+                <!-- Página actual -->
+                <!-- aria-current="page": indica que esta es la página actual -->
+                <li>
+                    <a href="#" aria-current="page">1</a>
+                </li>
+                
+                <!-- Otras páginas -->
+                <!-- El # se reemplazará con la URL real de cada página -->
+                <li>
+                    <a href="#page-2">2</a>
+                </li>
+                <li>
+                    <a href="#page-3">3</a>
+                </li>
+                <li>
+                    <a href="#page-4">4</a>
+                </li>
+                <li>
+                    <a href="#page-5">5</a>
+                </li>
+                <li>
+                    <a href="#page-6">6</a>
+                </li>
+                
+                <!-- Botón "siguiente" -->
+                <li>
+                    <a href="#page-2" aria-label="Página siguiente">›</a>
+                </li>
+            </ul>
+        </nav>
+    </footer>
+    
+</body>
+</html>
