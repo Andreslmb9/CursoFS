@@ -54,7 +54,7 @@
 
 body {
   font-family: system-ui;
-  background-color: var(--background);
+  background-color: var(--background); 
   color: var(--text-primary);
   min-height: 100vh;
   display: flex;
@@ -170,6 +170,8 @@ form {
   padding-inline: 1rem;
 }
 
+
+
 form > div {
   display: flex;
   align-items: center;
@@ -180,12 +182,13 @@ form > div {
   gap: 0.5rem;
 }
 
+
 form span {
-  padding-left: 0.75rem;
-  color: var(--text-muted);
   display: flex;
   align-items: center;
   flex-shrink: 0;
+  padding-left: 0.75rem;
+  color: var(--text-muted);
 }
 
 form input[type="text"] {

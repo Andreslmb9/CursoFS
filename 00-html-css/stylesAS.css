@@ -1,0 +1,191 @@
+/*Reset CSS para los navegadores*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Incluye el padding y border en el tamaño total del elemento */
+}
+
+/*Declaración de variables CSS*/
+:root {
+  --primary: #3b4550;
+  --primary-dark: #0a3d66;
+  --primary-hover: #0d5ba8;
+  --primary-light: #09f;
+  --background: #06182a;
+  --text-primary: #ffffff;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --border: rgba(255, 255, 255, 0.1);
+  --card-bg: #1e293b;
+  --shadow: rgba(0, 0, 0, 0.3);
+  --input-bg: #1e293b;
+  --hsla-example: hsla(210, 100%, 56%, 1);
+}
+
+/*Importación de fuente desde CDN*/
+@font-face {
+  font-family: 'Inter Variable'; /* Nombre de la fuente personalizada */
+  font-style: normal; /* Estilo normal de la fuente */
+  font-display: swap; /* Permite mostrar texto inmediatamente con una fuente de reserva mientras se carga la fuente personalizada */
+  font-weight: 100 900; /* Soporte para fuentes variables, puede utilizar desde el grosor mas fino al mas grueso*/
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/inter:vf@latest/latin-wght-normal.woff2) format('woff2-variations'); /* URL de la fuente y formato */
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; /* Rango de caracteres soportados */
+}
+
+body {
+    font-family: system-ui; /* Fuente del sistema para mejor rendimiento */
+    background-color: var(--background) /* Color de fondo utilizando variable CSS */;
+    color: var(--text-primary); /* Color de texto utilizando variable CSS */
+    min-height: 100vh; /* Asegura que el cuerpo ocupe al menos la altura completa de la ventana */
+    display: flex; /* Utiliza Flexbox para el diseño */
+    flex-direction: column; /* Dirección de los elementos hijos en columna */
+    line-height: 1.6; /* Altura entre líneas para mejorar la legibilidad */
+}
+
+h1{
+    font-size: 2.5rem; /* Tamaño de fuente grande para encabezados */
+    font-weight: 900; /* Grosor de fuente negrita */
+    margin-bottom: 1rem; /* Espacio inferior para separar del siguiente elemento */
+    line-height: 1.2; /* Altura de línea ajustada para encabezados */
+    text-wrap: balance; /* Balancea el texto en múltiples líneas para una mejor apariencia */
+}
+
+/* Estilo para párrafos que siguen a un h1 */
+h1 + p {
+    text-wrap: balance; /* Balancea el texto en múltiples líneas para una mejor apariencia */
+    margin-bottom: 2rem; /* Espacio inferior para separar del siguiente elemento */
+}
+
+header{
+    border-bottom: 1px solid var(--border); /* Borde inferior utilizando variable CSS */
+    background: var(--background); /* Color de fondo utilizando variable CSS */
+    padding: .5rem 1rem; /* Espaciado interno */
+    display: flex; /* Utiliza Flexbox para el diseño */
+    align-items: center; /* Alinea los elementos hijos verticalmente al centro */
+    justify-content: space-between; /* Distribuye los elementos hijos con espacio entre ellos */
+    gap: 2rem; /* Espacio entre los elementos hijos */
+
+    h2{
+        font-size: 1.25rem; /* Tamaño de fuente para subtítulos */
+        font-weight: 700; /* Grosor de fuente semi-negrita */
+        color: var(--text-primary); /* Color de texto utilizando variable CSS */
+    }
+}
+
+/* Navegación del header a otras páginas */
+nav {
+  align-items: center; /* Alinea los elementos hijos verticalmente al centro */
+  gap: 1rem; /* Espacio entre los elementos hijos */
+  display: flex; /* Utiliza Flexbox para el diseño */
+
+  a {
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+    color: var(--text-secondary);/* Color de texto utilizando variable CSS */
+    transition: color 0.2s;/* Transición suave para el cambio de color */
+    font-weight: 500; 
+
+    &:hover, &:focus { /* Estilos al pasar el cursor o enfocar */
+      color: var(--primary);
+      outline: none; /* Elimina el contorno predeterminado al enfocar */
+    }
+  }
+}
+
+header div a {
+  padding: 0.5rem 1rem; /* Espaciado interno */
+  border-radius: 0.5rem; /* Bordes redondeados */
+  background-color: #334155;
+  color: var(--text-primary);
+  display: inline-block; /* Permite aplicar padding y margin correctamente */
+  font-size: 0.875rem; /* Tamaño de fuente ligeramente más pequeño */
+  font-weight: 700; /* Grosor de fuente negrita */
+  text-decoration: none; /* Elimina el subrayado de los enlaces */
+  /* TODO */
+}
+
+main > section:nth-child(1) {
+  height: 200px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    padding-top: 36px;
+  }
+
+  & > img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    left: 0;
+    right: 0;
+    mask-image: linear-gradient(to bottom, rgba(16, 25, 34, 1) 5%, rgba(16, 25, 34, 0) 80%);
+  }
+}
+
+/* Formulario de Búsqueda */
+form {
+  /* PATRÓN: Contenedor centrado con ancho máximo */
+  
+  max-width: 42rem;      /* Ancho máximo: 672px (42 × 16px) - Evita que sea muy ancho en pantallas grandes */
+  width: 100%;           /* Ancho: 100% del contenedor padre - Se adapta a pantallas pequeñas */
+  margin: 0 auto;        /* Centra horizontalmente: 0 arriba/abajo, auto izq/der */
+  padding-inline: 1rem;  /* Espaciado interno horizontal: 16px izq/der - Evita que el contenido toque los bordes */
+}
+
+/* Contenedor del input de búsqueda */
+form > div {
+  /* Layout: Flexbox para alinear ícono + input horizontalmente */
+  display: flex;              /* Activa Flexbox */
+  align-items: center;        /* Centra verticalmente el contenido */
+  gap: 0.5rem;                /* Espaciado entre ícono e input: 8px */
+  
+  /* Apariencia visual */
+  background-color: var(--input-bg);  /* Color de fondo (variable para temas) */
+  border-radius: 0.5rem;              /* Esquinas redondeadas: 8px */
+  padding: 0.5rem;                    /* Espacio interno en todos los lados: 8px */
+  
+  /* Efecto de profundidad */
+  box-shadow: 0 10px 15px -3px var(--shadow);  
+  /* Sombra suave debajo:
+     - 0: sin desplazamiento horizontal
+     - 10px: desplazamiento vertical (abajo)
+     - 15px: difuminado
+     - -3px: contrae la sombra (más sutil)
+     - var(--shadow): color de la sombra (variable)
+  */
+}
+
+form span {
+  /* Espaciado: Separa el ícono del borde izquierdo */
+  padding-left: 0.75rem;   /* 12px de espacio a la izquierda */
+  
+  /* Color: Ícono gris apagado (decorativo, no protagonista) */
+  color: var(--text-muted);  /* Gris claro (#94a3b8 en tu caso) */
+  
+  /* Layout: Activa Flexbox para centrar el SVG dentro del span */
+  display: flex;             /* Convierte el span en contenedor flex */
+  align-items: center;       /* Centra el SVG verticalmente */
+  
+  /* Comportamiento responsive: El ícono NO se encoge nunca */
+  flex-shrink: 0;            /* CRÍTICO: Mantiene tamaño fijo en pantallas pequeñas */
+}
+
+form input[type="text"] {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-primary);
+  padding: 0.75rem 0.5rem;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+form input[type="text"]::placeholder {
+  color: #64748b;
+}
