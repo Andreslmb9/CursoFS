@@ -12,7 +12,7 @@
     <title>DevJobs - Encuentra tu próximo trabajo en tecnología</title>
 </head>
 
-<body>c
+<body>
     <!-- ========================================
          HEADER: Barra de navegación superior
          ======================================== -->
@@ -49,17 +49,16 @@
     </header>
 
     <main>
-        <section>
+        <section class="jobs-search">
             <div class="container">
                 <img src="./background.webp" width="200" />
 
-                <h1>Encuentra el trabajo de tus sueños</h1>
+                <h1>Encuentra tu próximo trabajo</h1>
 
-                <p>Únete a la comunidad más grande de desarrolladores y encuentra tu próxima oportunidad.</p>
+                <p>Explora miles de oportunidades en el sector tecnológico</p>
 
                 <form role="search">
-                    <div>
-
+                    <div class="search-bar">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="icon icon-tabler icons-tabler-outline icon-tabler-search">
@@ -78,13 +77,13 @@
                             <option value="ruby">Ruby</option>
                             <option value="php">PHP</option>
                         </select>
-                        <select name="location" id="location">
+                        <select name="location" id="filter-location">
                             <option value="">Ubicación</option>
                             <option value="remoto">Remoto</option>
                             <option value="cdmx">Ciudad de Mexico</option>
                             <option value="guadalajara">Guadalajara</option>
                         </select>
-                        <select name="experience-level" id="experience-level">
+                        <select name="experience-level" id="filter-experience-level">
                             <option value="">Ubicación</option>
                             <option value="junior">Junior</option>
                             <option value="mid">Mid-level</option>
@@ -92,22 +91,82 @@
                             <option value="lead">Lead</option>
                         </select>
                     </div>
-                    <header>
-                        <h2>Resultados de búsqueda</h2>
-                    </header>
                 </form>
             </div>
         </section>
-
         <section>
+            <h2>Resultados de búsqueda</h2>
 
-            <header>
-                <h2>Resultados de búsqueda</h2>
-            </header>
+            <div class="job-listings">
+                <article class="job-listing-card">
+                    <div>
+                        <h3>Desarrollador Frontend</h3>
+                        <small>Tech Solutions | Remoto</small>
+                        <p>Buscamos un ingeniero de software con experiencia en desarrollo web
+                            y conocimientos en JavaScript, React y Note.js. El candidato ideal debe
+                            ser capaz de trabajar en un entorno ágil y colaborar con equipos multifuncionales.</p>
+                        <button class="button-apply-job">Aplicar</button>
+                    </div>
+                </article>
+                <article class="job-listing-card">
+                    <div>
+                        <h3>Ingeniero DevOps</h3>
+                        <small>Cloud service SA | Remoto</small>
+                        <p>Buscamos un ingeniero de software con experiencia en desarrollo web
+                            y conocimientos en JavaScript, React y Note.js. El candidato ideal debe
+                            ser capaz de trabajar en un entorno ágil y colaborar con equipos multifuncionales..</p>
+                        <button class="button-apply-job">Aplicar</button>
+                    </div>
+                </article>
+                <article class="job-listing-card">
+                    <div>
+                        <h3>Desarrollador de aplicaciones móviles</h3>
+                        <small>Mobile Apps Ltd. | Guadalajara</small>
+                        <p>Buscamos un ingeniero de software con experiencia en desarrollo web
+                            y conocimientos en JavaScript, React y Note.js. El candidato ideal debe
+                            ser capaz de trabajar en un entorno ágil y colaborar con equipos multifuncionales.</p>
+                        <button class="button-apply-job">Aplicar</button>
+                    </div>
+                </article>
+                <article class="job-listing-card">
+                    <div>
+                        <h3>Analista de datos</h3>
+                        <small>Data Driven Co. | Ciudad de Mexico</small>
+                        <p>Buscamos un ingeniero de software con experiencia en desarrollo web
+                            y conocimientos en JavaScript, React y Note.js. El candidato ideal debe
+                            ser capaz de trabajar en un entorno ágil y colaborar con equipos multifuncionales.</p>
+                        <button class="button-apply-job">Aplicar</button>
+                    </div>
+                </article>
+            </div>
+            <nav class="pagination">
+                    <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="icon icon-tabler icons-tabler-outline icon-tabler-chevrons-left">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M11 7l-5 5l5 5" />
+                                <path d="M17 7l-5 5l5 5" />
+                            </svg></a>         
+                            <a class="is-active" href="#">1</a>           
+                            <a href="empleos.html">2</a>           
+                            <a href="#">3</a>           
+                            <a href="#">4</a>           
+                            <a href="#">5</a>           
+                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="icon icon-tabler icons-tabler-outline icon-tabler-chevrons-right">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M7 7l5 5l-5 5" />
+                                <path d="M13 7l5 5l-5 5" />
+                            </svg></a>
+            </nav>
+
 
         </section>
     </main>
-    <footer>
+    <footer style="padding-bottom: 2000px;">
         <small>&copy; 2025 DevJobs. Todos los derechos reservados.</small>
     </footer>
 </body>
