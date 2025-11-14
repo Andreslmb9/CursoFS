@@ -32,13 +32,13 @@
   font-display: swap;
   font-weight: 100 900;
   src: url(https://cdn.jsdelivr.net/fontsource/fonts/inter:vf@latest/latin-wght-normal.woff2) format('woff2-variations');
-  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 
 body {
   font-family: system-ui;
-  background-color: var(--background); 
+  background-color: var(--background);
   color: var(--text-primary);
   min-height: 100vh;
   display: flex;
@@ -54,6 +54,7 @@ h1 {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+
   svg {
     width: 2rem;
     height: 2rem;
@@ -61,7 +62,7 @@ h1 {
   }
 }
 
-h1 + p {
+h1+p {
   text-wrap: balance;
   margin-bottom: 2rem
 }
@@ -88,7 +89,7 @@ header {
   border-bottom: 1px solid var(--border);
   background: var(--background);
   /* Le quitamos el padding horizontal, el container se encarga */
-  padding: .5rem 0; 
+  padding: .5rem 0;
 }
 
 /* NUEVA REGLA: Aplicamos Flexbox al .container DENTRO del header */
@@ -113,7 +114,8 @@ nav {
     transition: color 0.2s;
     font-weight: 500;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       color: var(--primary);
       outline: none;
     }
@@ -134,7 +136,7 @@ header div a {
 }
 
 /* Hero */
-main > section:nth-child(1) .container{
+main>section:nth-child(1) .container {
   /*height: 150px;*/
   padding: auto;
   text-align: center;
@@ -147,7 +149,7 @@ main > section:nth-child(1) .container{
     padding-top: 36px;
   }
 
-  & > img {
+  &>img {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -169,7 +171,7 @@ form {
 
 
 
-form > div {
+form>div {
   display: flex;
   align-items: center;
   background-color: var(--input-bg);
@@ -225,12 +227,12 @@ form button[type="submit"]:focus {
 }
 
 /* Features Section */
-main > section:nth-child(2) {
+main>section:nth-child(2) {
   padding-inline: 1rem;
   background-color: var(--background);
   padding-top: 2rem;
 
-  & > header {
+  &>header {
     gap: 2px;
     flex-direction: column;
 
@@ -243,20 +245,20 @@ main > section:nth-child(2) {
     }
   }
 
-  & > div {
+  &>div {
     max-width: 1280px;
     margin: 0 auto;
   }
 }
 
-main > section:nth-child(2) h2 {
+main>section:nth-child(2) h2 {
   font-size: 1.875rem;
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 1rem;
 }
 
-main > section:nth-child(2) > div > div:first-child > p {
+main>section:nth-child(2)>div>div:first-child>p {
   font-size: 1.125rem;
   color: var(--text-muted);
   max-width: 42rem;
@@ -264,8 +266,8 @@ main > section:nth-child(2) > div > div:first-child > p {
 }
 
 /* Grid de Features  articule index responsive*/
-main > section:nth-child(2) .containerarticulos {
-  display: grid; 
+main>section:nth-child(2) .containerarticulos {
+  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 16px
 }
@@ -285,6 +287,7 @@ footer {
     font-size: 0.875rem;
   }
 }
+
 /* Feature Cards */
 article {
   background-color: var(--card-bg);
@@ -322,33 +325,166 @@ article {
 
 
 
+
+button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  background-color: var(--primary);
+  color: white;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-family: inherit;
+  font-size: 1rem;
+  white-space: nowrap;
+
+  &:hover,
+  /* Cuando el ratón está sobre el botón */
+  &:focus {
+    /* Cuando el botón está enfocado (accesibilidad) con el tabulador */
+    background-color: var(--primary-hover);
+    outline: 1.5px solid white;
+    outline-offset: 2px;
+  }
+}
+
+.jobs-search {
+  margin: 0;
+  padding: 0;
+
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: .25rem;
+  }
+
+  p {
+    font-size: 1.125rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .search-bar {
+    background: var(--input-bg);
+    padding: .25rem .5rem;
+  }
+
+  form {
+    width: 100%;
+    max-width: 1280px;
+  }
+
+  form div {
+    background: none;
+    box-shadow: none;
+    padding: 0;
+  }
+}
+
+.job-listings {
+  border: 1px solid rgba(255, 255, 255, .3);
+  border-radius: 1rem;
+
+
+  article {
+    background: none;
+    box-shadow: none;
+    border-radius: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, .3);
+    margin: 0;
+    position: relative;
+
+    display: flex;
+    align-items: start;
+    gap: 1rem;
+    padding: 1.5rem;
+
+    small {
+      font-size: .875rem;
+      opacity: .75;
+    }
+
+    p {
+      margin-top: 0.5rem;
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
+
+.button-apply-job {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: .5rem;
+  margin-block: 2rem;
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    text-decoration: none;
+    color: var(--text-muted);
+    border-radius: 0.375rem;
+    transition: all .3s;
+
+    &:hover {
+      background-color: #fff;
+    }
+
+    &.is-active{
+      background-color: var(--primary-light);
+      color: white;
+      pointer-events: none;
+    }
+  }
+}
+
+
+
 /* ========================================
    FILTROS DE BUSQUEDA
    ======================================== */
 
 
-main > section:nth-child(1) .filtros-de-busqueda {
+main>section:nth-child(1) .filtros-de-busqueda {
   padding: 1rem;
 }
 
 
 
-.filtros-de-busqueda > ul {
-  display: flex;           /* Alinea los filtros horizontalmente */
-  gap: 1rem;               /* Espacio entre filtros */
-  list-style: none;        /* Quita los puntos de la lista */
-  flex-wrap: wrap;         /* Permite que se ajusten en pantallas pequeñas */
+.filtros-de-busqueda>ul {
+  display: flex;
+  /* Alinea los filtros horizontalmente */
+  gap: 1rem;
+  /* Espacio entre filtros */
+  list-style: none;
+  /* Quita los puntos de la lista */
+  flex-wrap: wrap;
+  /* Permite que se ajusten en pantallas pequeñas */
 }
 
 /* Cada filtro (dropdown) */
 .dropdown {
-  position: relative;      /* CRÍTICO: Para posicionar el menú */
+  position: relative;
+  /* CRÍTICO: Para posicionar el menú */
 }
 
 /* Botón del dropdown */
 .dropdown button {
   padding: 0.75rem 1.25rem;
-  background-color: var(--card-bg);  /* Fondo oscuro */
+  background-color: var(--card-bg);
+  /* Fondo oscuro */
   color: var(--text-primary);
   border: 1px solid var(--border);
   border-radius: 0.5rem;
@@ -357,17 +493,20 @@ main > section:nth-child(1) .filtros-de-busqueda {
   font-size: 1rem;
   font-weight: 500;
   transition: all 0.2s;
-  
-  display: flex;           /* Para alinear texto + flecha */
+
+  display: flex;
+  /* Para alinear texto + flecha */
   align-items: center;
   gap: 0.5rem;
-  
-  white-space: nowrap;     /* Evita que el texto se parta */
+
+  white-space: nowrap;
+  /* Evita que el texto se parta */
 }
 
 /* Hover del botón */
 .dropdown button:hover {
-  background-color: #2d3748;  /* Un poco más claro */
+  background-color: #2d3748;
+  /* Un poco más claro */
   border-color: var(--primary);
 }
 
@@ -390,36 +529,42 @@ main > section:nth-child(1) .filtros-de-busqueda {
 
 /* Menú desplegable (oculto por defecto) */
 .dropdown-menu {
-  position: absolute;        /* CRÍTICO: Se posiciona sobre el contenido */
-  top: calc(100% + 0.5rem);  /* Justo debajo del botón con 8px de espacio */
+  position: absolute;
+  /* CRÍTICO: Se posiciona sobre el contenido */
+  top: calc(100% + 0.5rem);
+  /* Justo debajo del botón con 8px de espacio */
   left: 0;
-  
+
   background-color: var(--card-bg);
   border: 1px solid var(--border);
   border-radius: 0.5rem;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-  
+
   list-style: none;
   padding: 0.5rem 0;
   margin: 0;
-  
-  min-width: 200px;          /* Ancho mínimo */
-  z-index: 1000;             /* Aparece sobre otros elementos */
-  
+
+  min-width: 200px;
+  /* Ancho mínimo */
+  z-index: 1000;
+  /* Aparece sobre otros elementos */
+
   /* Oculto por defecto */
   display: none;
   opacity: 0;
-  transform: translateY(-10px);  /* Comienza 10px arriba */
-  
+  transform: translateY(-10px);
+  /* Comienza 10px arriba */
+
   /* Transición suave */
   transition: opacity 0.2s, transform 0.2s;
 }
 
 /* Menú visible cuando aria-expanded="true" */
-.dropdown button[aria-expanded="true"] + .dropdown-menu {
+.dropdown button[aria-expanded="true"]+.dropdown-menu {
   display: block;
   opacity: 1;
-  transform: translateY(0);  /* Vuelve a posición normal */
+  transform: translateY(0);
+  /* Vuelve a posición normal */
 }
 
 /* Opciones del menú */
@@ -432,7 +577,8 @@ main > section:nth-child(1) .filtros-de-busqueda {
 
 /* Hover de las opciones */
 .dropdown-menu li:hover {
-  background-color: rgba(59, 130, 246, 0.1);  /* Azul muy claro */
+  background-color: rgba(59, 130, 246, 0.1);
+  /* Azul muy claro */
   color: var(--primary);
 }
 
@@ -451,6 +597,7 @@ main > section:nth-child(1) .filtros-de-busqueda {
 .dropdown-menu li:last-child {
   border-radius: 0 0 0.5rem 0.5rem;
 }
+
 /* ========================================
    CONTENEDOR PRINCIPAL
    ======================================== */
@@ -469,38 +616,40 @@ main > section:nth-child(1) .filtros-de-busqueda {
    SECCIÓN DE RESULTADOS
    ======================================== */
 
-  .results-section{
-    background-color: var(--background);
-    padding: 2rem 0 4rem;
-   }
+.results-section {
+  background-color: var(--background);
+  padding: 2rem 0 4rem;
+}
 
- .results-section h2{
-    font-size: 1.875rem;
-    font-weight: 700;
-    margin-bottom: 2rem;
-    color: var(--text-primary);
-   }
+.results-section h2 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+}
 
-   /* Grid de features article resultado de empleos */
-  .job-list-grid{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-    gap: 16px;
-  }
+/* Grid de features article resultado de empleos */
+.job-list-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 16px;
+}
 
 /* REVISAR CÓDIGO PARA ENTENDER BIEN LA ESTRUCTURA */
 
 /* ========================================
    TARJETAS DE EMPLEO
    ======================================== */
-  
-   .job-card {
+
+.job-card {
   background-color: var(--card-bg);
   border: 1px solid var(--border);
   border-radius: 1rem;
-  padding: 1.5rem; /* Espaciado interno */
+  padding: 1.5rem;
+  /* Espaciado interno */
   margin-bottom: 0.2rem;
-  transition: all 0.3s ease; /* Transición suave para hover */
+  transition: all 0.3s ease;
+  /* Transición suave para hover */
 }
 
 /* Hover sutil en las tarjetas */
@@ -516,15 +665,18 @@ main > section:nth-child(1) .filtros-de-busqueda {
 
 .jobcardheader {
   display: flex;
-  justify-content: space-between;  /* Título a la izq, botón a la der */
-  align-items: flex-start;         /* Alineados arriba */
+  justify-content: space-between;
+  /* Título a la izq, botón a la der */
+  align-items: flex-start;
+  /* Alineados arriba */
   gap: 1rem;
   margin-bottom: 1rem;
 }
 
 /* Contenedor del título y metadatos */
-.jobcardheader > div {
-  flex: 1;  /* Ocupa todo el espacio disponible */
+.jobcardheader>div {
+  flex: 1;
+  /* Ocupa todo el espacio disponible */
 }
 
 
@@ -569,7 +721,7 @@ main > section:nth-child(1) .filtros-de-busqueda {
    ======================================== */
 
 .btn-apply {
-  padding: 0.625rem 1.5rem; 
+  padding: 0.625rem 1.5rem;
   background-color: #3b82f6;
   color: white;
   border: none;
@@ -578,8 +730,10 @@ main > section:nth-child(1) .filtros-de-busqueda {
   font-size: 0.9375rem;
   cursor: pointer;
   transition: background-color 0.2s;
-  white-space: nowrap;  /* Evita que el texto se parta */
-  flex-shrink: 0;       /* No se encoge */
+  white-space: nowrap;
+  /* Evita que el texto se parta */
+  flex-shrink: 0;
+  /* No se encoge */
   font-family: inherit;
 }
 
@@ -595,4 +749,3 @@ main > section:nth-child(1) .filtros-de-busqueda {
 .btn-apply:active {
   transform: scale(0.98);
 }
-
