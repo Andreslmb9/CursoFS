@@ -442,7 +442,7 @@ button {
       background-color: #fff;
     }
 
-    &.is-active{
+    &.is-active {
       background-color: var(--primary-light);
       color: white;
       pointer-events: none;
@@ -450,8 +450,14 @@ button {
   }
 }
 
-#boton-importante {
+
+
+.button-apply-job {
   background: #09F;
+  &.is-applied {
+    background: #4caf50;
+    pointer-events: none;
+  }
 }
 
 /* ========================================
