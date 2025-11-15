@@ -450,7 +450,9 @@ button {
   }
 }
 
-
+#boton-importante {
+  background: #09F;
+}
 
 /* ========================================
    FILTROS DE BUSQUEDA

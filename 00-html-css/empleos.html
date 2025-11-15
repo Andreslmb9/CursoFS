@@ -2,196 +2,176 @@
 <html lang="es">
 
 <head>
-  <title>DevJobs - Empleos</title>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Meta viewport, permite el responsive-->
-  <meta name="description" content="Explora las últimas ofertas de trabajo para desarrolladores">
-  <link rel="stylesheet" href="./styles.css" />
+    <!-- Metadatos básicos del documento -->
+    <meta charset="UTF-8"> <!-- Codificación de caracteres para mostrar tildes y ñ correctamente -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Hace que la página sea responsive (se adapte a móviles) -->
+    <meta name="description" content="Explora las últimas ofertas de trabajo para desarrolladores">
+    <!-- Descripción para SEO (Google) -->
+    <link rel="stylesheet" href="./styles.css"> <!-- Enlace al archivo CSS externo -->
+    <title>DevJobs - Encuentra tu próximo trabajo en tecnología</title>
+    <script type="module" src="./scripts.js"></script>
+
 </head>
 
 <body>
-  <header>
-    <div class="container">
-      <h1>
-          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <polyline points="16 18 22 12 16 6"></polyline>
-        <polyline points="8 6 2 12 8 18"></polyline>
-      </svg>
-        DevJobs</h1>
+    <!-- ========================================
+         HEADER: Barra de navegación superior
+         ======================================== -->
 
-      <nav>
-        <a href="index.html">Inicio</a>
-        <a href="empleos.html">Empleos</a>
-        <a href="">Empresas</a>
-        <a href="">Salarios</a>
-      </nav>
-      <div>
-        <a href="">Subir CV</a>
-        <button type="button" class="profileButton" aria-label="Abrir menú del perfil"> <img src="./background.webp"
-            width="32" height="32" alt="avatar-usuario">
-        </button>
-      </div>
-    </div>
-  </header>
-  <main>
-    <section>
-      <div class="container">
-        <h1>Encuentra tu próximo trabajo</h1>
-        <p>Explora miles de oportunidades en el sector tecnológico</p>
-        <form role="search">
-          <div>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"
-              class="icon icon-tabler icons-tabler-outline icon-tabler-world-search">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M21 12a9 9 0 1 0 -9 9" />
-              <path d="M3.6 9h16.8" />
-              <path d="M3.6 15h7.9" />
-              <path d="M11.5 3a17 17 0 0 0 0 18" />
-              <path d="M12.5 3a16.984 16.984 0 0 1 2.574 8.62" />
-              <path d="M18 18m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-              <path d="M20.2 20.2l1.8 1.8" />
-            </svg>
-            <input required type="text" placeholder="Buscar trabajos, empresas o habilidades" />
-          </div>
-        </form>
-      </div>
-    </section>
-    <section>
-      <div class="container">
+    <header>
+        <div class="container">
+            <h1>
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+                DevJobs
+            </h1>
+
+            <nav>
+                <a href="index.html">Inicio</a>
+                <a href="empleos.html">Empleos</a>
+                <a href="">Empresas</a>
+                <a href="">Salarios</a>
+            </nav>
+
+            <div>
+                <a href="">Publicar un empleo</a>
+                <a href="">Iniciar sesión</a>
+            </div>
+            <div class="header-actions">
+                <a href="subir-cv.html" class="btn-upload-cv">Subir CV</a>
+                <button type="button" class="profile-button" aria-label="Abrir menú del perfil">
+                    <img src="./background.webp" width="30" height="30" alt="Avatar de usuario">
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="jobs-search">
+            <div class="container">
+                <img src="./background.webp" width="200" />
+
+                <h1>Encuentra tu próximo trabajo</h1>
+
+                <p>Explora miles de oportunidades en el sector tecnológico</p>
+
+                <form role="search">
+                    <div class="search-bar">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="icon icon-tabler icons-tabler-outline icon-tabler-search">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+                            <path d="M21 21l-6 -6" />
+                        </svg>
+                        <input required type="text" placeholder="Buscar trabajos, empresas o habilidades">
+                    </div>
+                    <div class="search-filters">
+                        <select name="tecnology" id="filter-tecnology">
+                            <option value="">Tecnología</option>
+                            <option value="javascript">JavaScript</option>
+                            <option value="python">Python</option>
+                            <option value="java">Java</option>
+                            <option value="ruby">Ruby</option>
+                            <option value="php">PHP</option>
+                        </select>
+                        <select name="location" id="filter-location">
+                            <option value="">Ubicación</option>
+                            <option value="remoto">Remoto</option>
+                            <option value="cdmx">Ciudad de Mexico</option>
+                            <option value="guadalajara">Guadalajara</option>
+                        </select>
+                        <select name="experience-level" id="filter-experience-level">
+                            <option value="">Ubicación</option>
+                            <option value="junior">Junior</option>
+                            <option value="mid">Mid-level</option>
+                            <option value="senior">Senior</option>
+                            <option value="lead">Lead</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+        </section>
         <section>
-          <nav class="filtros-de-busqueda" aria-label="Filtros de búsqueda">
-            <ul>
-              <!-- FILTRO 1: Tecnología -->
-              <li class="dropdown">
-                <button type="button" aria-haspopup="listbox" aria-expanded="false">
-                  Tecnología
-                  <span aria-hidden="true">▼</span>
-                </button>
-                <ul role="listbox" aria-label="Tecnología" class="dropdown-menu">
-                  <li role="option">CSS</li>
-                  <li role="option">JavaScript</li>
-                  <li role="option">React</li>
-                  <li role="option">HTML</li>
-                  <li role="option">QA</li>
-                </ul>
-              </li>
 
-              <!-- FILTRO 2: Ubicación -->
-              <li class="dropdown">
-                <button type="button" aria-haspopup="listbox" aria-expanded="false">
-                  Ubicación
-                  <span aria-hidden="true">▼</span>
-                </button>
-                <ul role="listbox" aria-label="Ubicación" class="dropdown-menu">
-                  <li role="option">Remoto</li>
-                  <li role="option">Presencial</li>
-                  <li role="option">Híbrido</li>
-                </ul>
-              </li>
+            <h2>Resultados de búsqueda</h2>
 
-              <!-- FILTRO 3: Tipo de contrato -->
-              <li class="dropdown">
-                <button type="button" aria-haspopup="listbox" aria-expanded="false">
-                  Tipo de contrato
-                  <span aria-hidden="true">▼</span>
-                </button>
-                <ul role="listbox" aria-label="Tipo de contrato" class="dropdown-menu">
-                  <li role="option">Indefinido</li>
-                  <li role="option">Obra labor</li>
-                  <li role="option">Término fijo</li>
-                </ul>
-              </li>
+            <div class="job-listings">
 
-              <!-- FILTRO 4: Nivel de experiencia -->
-              <li class="dropdown">
-                <button type="button" aria-haspopup="listbox" aria-expanded="false">
-                  Nivel de experiencia
-                  <span aria-hidden="true">▼</span>
-                </button>
-                <ul role="listbox" aria-label="Nivel de experiencia" class="dropdown-menu">
-                  <li role="option">Junior</li>
-                  <li role="option">Mid-level</li>
-                  <li role="option">Senior</li>
-                </ul>
-              </li>
-            </ul>
-          </nav>
-      </div>
-    </section>
-    <section class="results-section">
-      <div class="container">
-        <h2>Resultados de búsqueda</h2>
-        <div class="job-list-grid"></div>
-        <article class="job-card">
-          <div class="jobcardheader">
-            <div>
-              <h3>Desarrollador Frontend</h3>
-              <p class="jobmeta">Tech Solutions Inc. | Remoto</p>
+                <article class="job-listing-card">
+                    <div>
+                        <h3>Desarrollador Frontend</h3>
+                        <small>Tech Solutions | Remoto</small>
+                        <p>Buscamos un ingeniero de software con experiencia en desarrollo web
+                            y conocimientos en JavaScript, React y Note.js. El candidato ideal debe
+                            ser capaz de trabajar en un entorno ágil y colaborar con equipos multifuncionales.</p>
+                        <button class="button-apply-job" id="boton-importante">Aplicar</button>
+                    </div>
+                </article>
+                <article class="job-listing-card">
+                    <div>
+                        <h3>Ingeniero DevOps</h3>
+                        <small>Cloud service SA | Remoto</small>
+                        <p>Buscamos un ingeniero de software con experiencia en desarrollo web
+                            y conocimientos en JavaScript, React y Note.js. El candidato ideal debe
+                            ser capaz de trabajar en un entorno ágil y colaborar con equipos multifuncionales..</p>
+                        <button class="button-apply-job">Aplicar</button>
+                    </div>
+                </article>
+                <article class="job-listing-card">
+                    <div>
+                        <h3>Desarrollador de aplicaciones móviles</h3>
+                        <small>Mobile Apps Ltd. | Guadalajara</small>
+                        <p>Buscamos un ingeniero de software con experiencia en desarrollo web
+                            y conocimientos en JavaScript, React y Note.js. El candidato ideal debe
+                            ser capaz de trabajar en un entorno ágil y colaborar con equipos multifuncionales.</p>
+                        <button class="button-apply-job">Aplicar</button>
+                    </div>
+                </article>
+                <article class="job-listing-card">
+                    <div>
+                        <h3>Analista de datos</h3>
+                        <small>Data Driven Co. | Ciudad de Mexico</small>
+                        <p>Buscamos un ingeniero de software con experiencia en desarrollo web
+                            y conocimientos en JavaScript, React y Note.js. El candidato ideal debe
+                            ser capaz de trabajar en un entorno ágil y colaborar con equipos multifuncionales.</p>
+                        <button class="button-apply-job">Aplicar</button>
+                    </div>
+                </article>
             </div>
-            <button type="button" class="btn-apply">Aplicar</button>
-          </div>
-          <p class="job-description">Buscamos un ingeniero de software con experiencia en desarrollo web
-            y conocimientos en JavaScript, React y Note.js. El candidato ideal debe
-            ser capaz de trabajar en un entorno ágil y colaborar con equipos multifuncionales.
-          </p>
-        </article>
-        <article class="job-card">
-          <div class="jobcardheader">
-            <div>
-              <h3>Analista de datos</h3>
-              <p class="jobmeta">Data Driven Co. | Ciudad de Mexico</p>
-            </div>
-            <button type="button" class="btn-apply">Aplicar</button>
-          </div>
-          <p class="job-description">Buscamos un ingeniero de software con experiencia en desarrollo web
-            y conocimientos en JavaScript, React y Note.js. El candidato ideal debe
-            ser capaz de trabajar en un entorno ágil y colaborar con equipos multifuncionales.
-          </p>
-        </article>
-        <article class="job-card">
-          <div class="jobcardheader">
-            <div>
-              <h3>Desarrollador de aplicaciones móviles</h3>
-              <p class="jobmeta">Mobile Apps Ltd. | Guadalajara</p>
-            </div>
-            <button type="button" class="btn-apply">Aplicar</button>
-          </div>
-          <p class="job-description">Buscamos un ingeniero de software con experiencia en desarrollo web
-            y conocimientos en JavaScript, React y Note.js. El candidato ideal debe
-            ser capaz de trabajar en un entorno ágil y colaborar con equipos multifuncionales.
-          </p>
-        </article>
-        <article class="job-card">
-          <div class="jobcardheader">
-            <div>
-              <h3>Ingeniero DevOps</h3>
-              <p class="jobmeta">Cloud service SA | Remoto</p>
-            </div>
-            <button type="button" class="btn-apply">Aplicar</button>
-          </div>
-          <p class="job-description">Buscamos un ingeniero de software con experiencia en desarrollo web
-            y conocimientos en JavaScript, React y Note.js. El candidato ideal debe
-            ser capaz de trabajar en un entorno ágil y colaborar con equipos multifuncionales.
-          </p>
-        </article>
-      </div>
-    </section>
+            <nav class="pagination">
+                <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevrons-left">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M11 7l-5 5l5 5" />
+                        <path d="M17 7l-5 5l5 5" />
+                    </svg></a>
+                <a class="is-active" href="#">1</a>
+                <a href="empleos.html">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="icon icon-tabler icons-tabler-outline icon-tabler-chevrons-right">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M7 7l5 5l-5 5" />
+                        <path d="M13 7l5 5l-5 5" />
+                    </svg></a>
+            </nav>
 
-    </section>
-  </main>
-  <footer>
-    <ul>
-      <a href="">«</href>
-        <a href="">1</href>
-          <a href="">2</href>
-            <a href="">3</href>
-              <a href="">4</href>
-                <a href="">5</href>
-                  <a href="">6</href>
-                    <a href="">»</href>
-    </ul>
+
+        </section>
+    </main>
+    <footer style="padding-bottom: 2000px;">
+        <small>&copy; 2025 DevJobs. Todos los derechos reservados.</small>
+    </footer>
 </body>
 
 </html>
