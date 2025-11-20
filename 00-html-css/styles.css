@@ -314,14 +314,16 @@ article {
   }
 }
 
-/* CONTAINER DE RESULTADOS DE EMPLEOS 
+
+
 .container {
-  padding: 2rem; 
-  margin-bottom: 16px; 
-  border-radius: 0.5rem; 
-  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.5); 
-  padding-inline: 2rem;
-}*/
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
 
 
 
@@ -419,6 +421,12 @@ button {
   position: absolute;
   top: 1.5rem;
   right: 1.5rem;
+  background: #09F;
+
+  &.is-applied {
+    background: #4caf50;
+    pointer-events: none;
+  }
 }
 
 .pagination {
@@ -442,7 +450,7 @@ button {
       background-color: #fff;
     }
 
-    &.is-active{
+    &.is-active {
       background-color: var(--primary-light);
       color: white;
       pointer-events: none;
@@ -450,304 +458,63 @@ button {
   }
 }
 
-#boton-importante {
-  background: #09F;
-}
-
-/* ========================================
-   FILTROS DE BUSQUEDA
-   ======================================== */
-
-
-main>section:nth-child(1) .filtros-de-busqueda {
-  padding: 1rem;
-}
-
-
-
-.filtros-de-busqueda>ul {
+.resultJob {
+  background: none;
   display: flex;
-  /* Alinea los filtros horizontalmente */
-  gap: 1rem;
-  /* Espacio entre filtros */
+  flex-direction: column;
+  align-items:  flex-start;
+  text-align: left;
+  gap: 1rem; /* Espacio entre elementos */
+  margin-top: 2rem;
+
+  li svg {
+    background: none; /* Quita el círculo azul */
+    width: 1.5rem; /* Tamaño correcto (24px) */
+    height: 1.5rem;
+    padding: 0; /* Quita el relleno extra */
+    border-radius: 0;
+    box-shadow: none; /* Estilos del check */
+    fill: none; /* Quita el relleno azul */
+
+    /* Alineación */
+    min-width: 1.5rem;
+    margin-top: 0.1rem;
+  }
+}
+
+
+/* Estilos para la lista (quitar puntos) */
+.descriptionJob ul {
   list-style: none;
-  /* Quita los puntos de la lista */
-  flex-wrap: wrap;
-  /* Permite que se ajusten en pantallas pequeñas */
+  padding: 0;
+  margin: 1rem 0;
 }
 
-/* Cada filtro (dropdown) */
-.dropdown {
-  position: relative;
-  /* CRÍTICO: Para posicionar el menú */
-}
-
-/* Botón del dropdown */
-.dropdown button {
-  padding: 0.75rem 1.25rem;
-  background-color: var(--card-bg);
-  /* Fondo oscuro */
-  color: var(--text-primary);
-  border: 1px solid var(--border);
-  border-radius: 0.5rem;
-  cursor: pointer;
-  font-family: inherit;
-  font-size: 1rem;
-  font-weight: 500;
-  transition: all 0.2s;
-
+.descriptionJob li {
   display: flex;
-  /* Para alinear texto + flecha */
-  align-items: center;
-  gap: 0.5rem;
-
-  white-space: nowrap;
-  /* Evita que el texto se parta */
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
 }
 
-/* Hover del botón */
-.dropdown button:hover {
-  background-color: #2d3748;
-  /* Un poco más claro */
-  border-color: var(--primary);
-}
-
-/* Focus del botón (accesibilidad) */
-.dropdown button:focus {
-  outline: 2px solid var(--primary);
-  outline-offset: 2px;
-}
-
-/* Flecha del botón */
-.dropdown button span {
-  font-size: 0.75rem;
-  transition: transform 0.2s;
-}
-
-/* Rota la flecha cuando está abierto */
-.dropdown button[aria-expanded="true"] span {
-  transform: rotate(180deg);
-}
-
-/* Menú desplegable (oculto por defecto) */
-.dropdown-menu {
-  position: absolute;
-  /* CRÍTICO: Se posiciona sobre el contenido */
-  top: calc(100% + 0.5rem);
-  /* Justo debajo del botón con 8px de espacio */
-  left: 0;
-
-  background-color: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 0.5rem;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-
-  list-style: none;
-  padding: 0.5rem 0;
-  margin: 0;
-
-  min-width: 200px;
-  /* Ancho mínimo */
-  z-index: 1000;
-  /* Aparece sobre otros elementos */
-
-  /* Oculto por defecto */
-  display: none;
-  opacity: 0;
-  transform: translateY(-10px);
-  /* Comienza 10px arriba */
-
-  /* Transición suave */
-  transition: opacity 0.2s, transform 0.2s;
-}
-
-/* Menú visible cuando aria-expanded="true" */
-.dropdown button[aria-expanded="true"]+.dropdown-menu {
-  display: block;
-  opacity: 1;
-  transform: translateY(0);
-  /* Vuelve a posición normal */
-}
-
-/* Opciones del menú */
-.dropdown-menu li {
-  padding: 0.75rem 1rem;
-  color: var(--text-primary);
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-/* Hover de las opciones */
-.dropdown-menu li:hover {
-  background-color: rgba(59, 130, 246, 0.1);
-  /* Azul muy claro */
-  color: var(--primary);
-}
-
-/* Focus de las opciones (accesibilidad) */
-.dropdown-menu li:focus {
-  background-color: rgba(59, 130, 246, 0.2);
-  outline: none;
-}
-
-/* Primera opción sin borde superior */
-.dropdown-menu li:first-child {
-  border-radius: 0.5rem 0.5rem 0 0;
-}
-
-/* Última opción sin borde inferior */
-.dropdown-menu li:last-child {
-  border-radius: 0 0 0.5rem 0.5rem;
-}
-
-/* ========================================
-   CONTENEDOR PRINCIPAL
-   ======================================== */
-
-.container {
-  width: 100%;
-  max-width: 1280px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  /*padding-inline: 1rem;*/
-}
-
-/* ========================================
-   SECCIÓN DE RESULTADOS
-   ======================================== */
-
-.results-section {
-  background-color: var(--background);
-  padding: 2rem 0 4rem;
-}
-
-.results-section h2 {
-  font-size: 1.875rem;
-  font-weight: 700;
-  margin-bottom: 2rem;
-  color: var(--text-primary);
-}
-
-/* Grid de features article resultado de empleos */
-.job-list-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-  gap: 16px;
-}
-
-/* REVISAR CÓDIGO PARA ENTENDER BIEN LA ESTRUCTURA */
-
-/* ========================================
-   TARJETAS DE EMPLEO
-   ======================================== */
-
-.job-card {
-  background-color: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 1rem;
-  padding: 1.5rem;
-  /* Espaciado interno */
-  margin-bottom: 0.2rem;
-  transition: all 0.3s ease;
-  /* Transición suave para hover */
-}
-
-/* Hover sutil en las tarjetas */
-.job-card:hover {
-  border-color: var(--border);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+/* 3. ARREGLO DE LOS BOTONES */
+/* El problema era 'position: absolute' que los mandaba al cielo.
+   Aquí les decimos que se queden quietos (static). */
+.resultJob .button-apply-job,
+.container>.button-apply-job {
+  position: static;
+  display: inline-block;
+  margin-top: 1rem;
+  width: fit-content;
+  align-self: flex-end;
 }
 
 
-/* ========================================
-   HEADER DE LA TARJETA (Título + Botón)
-   ======================================== */
 
-.jobcardheader {
+.resultJob article {
+  /* Aseguramos que el article de esta página sea flexible hacia abajo */
   display: flex;
-  justify-content: space-between;
-  /* Título a la izq, botón a la der */
-  align-items: flex-start;
-  /* Alineados arriba */
+  flex-direction: column;
   gap: 1rem;
-  margin-bottom: 1rem;
-}
-
-/* Contenedor del título y metadatos */
-.jobcardheader>div {
-  flex: 1;
-  /* Ocupa todo el espacio disponible */
-}
-
-
-/* ========================================
-   TÍTULO DEL EMPLEO
-   ======================================== */
-
-.job-card h3 {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: var(--text-primary);
-  line-height: 1.4;
-}
-
-
-/* ========================================
-   METADATOS (Empresa | Ubicación)
-   ======================================== */
-
-.jobmeta {
-  font-size: 0.875rem;
-  color: var(--text-muted);
-  margin: 0;
-}
-
-
-/* ========================================
-   DESCRIPCIÓN DEL EMPLEO
-   ======================================== */
-
-.job-description {
-  font-size: 0.9375rem;
-  color: var(--text-secondary);
-  line-height: 1.6;
-  margin: 0;
-}
-
-
-/* ========================================
-   BOTÓN APLICAR
-   ======================================== */
-
-.btn-apply {
-  padding: 0.625rem 1.5rem;
-  background-color: #3b82f6;
-  color: white;
-  border: none;
-  border-radius: 0.5rem;
-  font-weight: 600;
-  font-size: 0.9375rem;
-  cursor: pointer;
-  transition: background-color 0.2s;
-  white-space: nowrap;
-  /* Evita que el texto se parta */
-  flex-shrink: 0;
-  /* No se encoge */
-  font-family: inherit;
-}
-
-.btn-apply:hover {
-  background-color: #2563eb;
-}
-
-.btn-apply:focus {
-  outline: 2px solid #3b82f6;
-  outline-offset: 2px;
-}
-
-.btn-apply:active {
-  transform: scale(0.98);
+  padding: 0;
+  /* El padding ya lo da el container */
 }
