@@ -28,6 +28,7 @@
 // })
 
 const jobListingSection = document.querySelector('.job-listings')
+console.log(jobListingSection)
 
 jobListingSection?.addEventListener('click', function (event) { // Optional chaining, valida si el elemento existe, si es null, no se ejecuta nada a la derecha del ?
     const element = event.target
@@ -35,7 +36,21 @@ jobListingSection?.addEventListener('click', function (event) { // Optional chai
     if (element.classList.contains('button-apply-job')) {
         element.textContent = 'Aplicado!'
         element.classList.add('is-applied')
-        element.disable = true
+        element.disabled = true
+    }
+});
+
+// Revisar mañana que esto se pueda realizar en un solo listener.
+
+const resultSection = document.querySelector('.resultJob')
+
+resultSection?.addEventListener('click', function (event) { // Optional chaining, valida si el elemento existe, si es null, no se ejecuta nada a la derecha del ?
+    const element = event.target
+
+    if (element.classList.contains('button-apply-job')) {
+        element.textContent = 'Aplicado!'
+        element.classList.add('is-applied')
+        element.disabled = true
     }
 });
 

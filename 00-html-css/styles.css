@@ -458,32 +458,45 @@ button {
   }
 }
 
+
+
 .resultJob {
   background: none;
   display: flex;
   flex-direction: column;
-  align-items:  flex-start;
+  align-items: flex-start; /* Alinea todo a la izquierda */
   text-align: left;
-  gap: 1rem; /* Espacio entre elementos */
+  gap: 1rem;
   margin-top: 2rem;
-
-  li svg {
-    background: none; /* Quita el círculo azul */
-    width: 1.5rem; /* Tamaño correcto (24px) */
-    height: 1.5rem;
-    padding: 0; /* Quita el relleno extra */
-    border-radius: 0;
-    box-shadow: none; /* Estilos del check */
-    fill: none; /* Quita el relleno azul */
-
-    /* Alineación */
-    min-width: 1.5rem;
-    margin-top: 0.1rem;
-  }
 }
 
 
-/* Estilos para la lista (quitar puntos) */
+.resultJob li svg {
+    background: none !important; /* Quita círculo azul */
+    width: 1.5rem !important;
+    height: 1.5rem !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    fill: none !important;       /* Quita relleno sólido */
+    stroke: var(--primary-light); /* Usa tu color azul */
+    stroke-width: 2px;
+    
+    /* Alineación */
+    min-width: 1.5rem;
+    margin-top: 0.1rem;
+}
+
+
+.descriptionJob {
+    background-color: transparent; 
+    background: none;              
+    
+    box-shadow: none;             
+    border: none;                  
+    padding: 0;                    
+}
+/* 3. Estilos para la lista (Quitar puntos) */
 .descriptionJob ul {
   list-style: none;
   padding: 0;
@@ -496,25 +509,70 @@ button {
   margin-bottom: 0.75rem;
 }
 
-/* 3. ARREGLO DE LOS BOTONES */
-/* El problema era 'position: absolute' que los mandaba al cielo.
-   Aquí les decimos que se queden quietos (static). */
-.resultJob .button-apply-job,
-.container>.button-apply-job {
-  position: static;
-  display: inline-block;
-  margin-top: 1rem;
-  width: fit-content;
-  align-self: flex-end;
+.job-header-container {
+    display: flex;
+    justify-content: space-between; /* LA CLAVE: Separa los extremos */
+    align-items: center;
+    width: 100%;                    /* Asegura que ocupe todo el ancho */
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* Ajustes para móviles: uno debajo del otro */
+@media (max-width: 768px) {
+    .job-header-container {
+        flex-direction: column;
+    }
+}
+
+/* Grupo de textos del encabezado */
+.job-header-text {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.job-header-text h1 {
+    margin-bottom: 0.25rem;
+    line-height: 1.1;
+    font-size: 2rem; /* Tamaño grande para el título */
+}
+
+.job-header-text small {
+    font-size: 1.1rem;
+    color: var(--text-muted);
 }
 
 
+/* Botón de arriba (en el header) */
+.job-header-container .button-apply-job {
+    position: static ; /* Deja de flotar */
+    margin: 0 ;
+    transform: none ;
+    white-space: nowrap;         /* Texto en una sola línea */
+}
 
+/* Botón de abajo (al final de la descripción) */
+.descriptionJob .button-apply-job {
+    position: static ;
+    margin-top: 2rem;
+    display: inline-block;
+    align-self: flex-end;
+}
+
+/* Asegurar que el artículo ocupe el espacio correcto */
 .resultJob article {
-  /* Aseguramos que el article de esta página sea flexible hacia abajo */
   display: flex;
   flex-direction: column;
   gap: 1rem;
   padding: 0;
-  /* El padding ya lo da el container */
+  width: 100%;
+}
+
+h5{
+  padding: 2rem;
+  color: var(--primary);
+  b{
+    color: var(--text-primary);
+  }
 }
