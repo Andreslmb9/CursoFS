@@ -54,6 +54,26 @@ resultSection?.addEventListener('click', function (event) { // Optional chaining
     }
 });
 
+
+const filterJob = document.querySelector('.search-filters')
+
+
+filterJob?.addEventListener('change', function (event) {
+    const element = event.target
+    console.log(element.value)
+    const jobListings = document.querySelectorAll('.job-listing')
+    jobListings.forEach(job => {
+        if (element.value === 'all') {
+            job.classList.remove('hidden') 
+            return
+        }
+        if (job.dataset.type === element.value) {
+            job.classList.remove('hidden')
+        } else {
+            job.classList.add('hidden')
+        }
+    })
+});
 // Ejercicio 1: Crear la tercera pagina detalle de la oferta
 // Ejercicio 2: Filtrar las ofertas por tipo de trabajo (remoto, tiempo completo, medio tiempo), Pista, escuchando el evento 'change' en un select
 
